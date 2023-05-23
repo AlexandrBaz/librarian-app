@@ -72,7 +72,7 @@ public class BookController {
     }
 
     @PatchMapping("/set-reader{id}")
-    public String setReader(@ModelAttribute("reader") Reader reader, @ModelAttribute("id") int bookId){
+    public String setReader(@ModelAttribute("reader") Reader reader, @PathVariable("id") int bookId){
         bookDao.setBookReader(reader.getId(),bookId);
         return "redirect:/books/{id}";
     }
